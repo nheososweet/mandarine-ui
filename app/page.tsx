@@ -260,7 +260,7 @@ export default function PortfolioFixed() {
                   </div>
                 </div>
                 <div className="hidden md:block">
-                  <StarBorder
+                  {/* <StarBorder
                     as="button"
                     color="cyan"
                     speed="4s"
@@ -270,7 +270,7 @@ export default function PortfolioFixed() {
                       <Download className="w-4 h-4" />{" "}
                       <span className="font-semibold">Download CV</span>
                     </div>
-                  </StarBorder>
+                  </StarBorder> */}
                 </div>
               </section>
 
