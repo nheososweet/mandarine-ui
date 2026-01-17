@@ -27,6 +27,7 @@ import {
   Globe,
   ShieldCheck,
   Zap,
+  Citrus,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
@@ -42,7 +43,8 @@ import Dock from "@/components/Dock";
 import BlurText from "@/components/BlurText";
 import ClickSpark from "@/components/ClickSpark";
 import TextType from "@/components/TextType";
-import GradientText from "@/components/GradientText";
+import Particles from "@/components/Particles";
+import Link from "next/link";
 
 // --- DATA ---
 const PROFILE = {
@@ -94,76 +96,15 @@ const WORK_HISTORY = [
 // FIX 2 & FIX 1: Mockup nhiều project & Đổi màu sang RGBA chuẩn
 const PROJECTS = [
   {
-    title: "DreamStream GenAI",
-    desc: "Nền tảng tạo ảnh nghệ thuật từ văn bản sử dụng Stable Diffusion và ControlNet.",
-    tag: "Generative AI",
-    tech: "Python • PyTorch • React",
-    color: "rgba(236, 72, 153, 0.15)", // Pink
+    title: "Mandarine Hub",
+    desc: "Nền tảng Orchestration cho Digital Workforce. Xây dựng và quản lý đội ngũ AI Agent với Workflow trực quan và RAG Knowledge chuyên sâu.",
+    tag: "AI Infrastructure",
+    tech: "Next.js • React Flow • Vercel AI SDK • Pinecone",
+    color: "rgba(249, 115, 22, 0.15)", // Orange
     image:
-      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "Voice Command Hub",
-    desc: "Trợ lý ảo điều khiển Smart Home bằng giọng nói tiếng Việt độ trễ thấp.",
-    tag: "AI / Voice",
-    tech: "Next.js • Whisper API",
-    color: "rgba(59, 130, 246, 0.15)", // Blue
-    image:
-      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "Crypto Analytics Pro",
-    desc: "Dashboard theo dõi thị trường Crypto realtime với biểu đồ nến và AI dự đoán.",
-    tag: "Web3",
-    tech: "Next.js • Recharts • WebSocket",
-    color: "rgba(16, 185, 129, 0.15)", // Emerald
-    image:
-      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "Kimetsu RAG Knowledge",
-    desc: "Hệ thống hỏi đáp thông minh về Anime sử dụng Vector Database và LLM.",
-    tag: "RAG System",
-    tech: "LangChain • Pinecone • FastAPI",
-    color: "rgba(168, 85, 247, 0.15)", // Purple
-    image:
-      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "Banking Microservices",
-    desc: "Hệ thống backend xử lý giao dịch ngân hàng chịu tải cao (10k TPS).",
-    tag: "Backend",
-    tech: "Go • Kafka • Docker",
-    color: "rgba(245, 158, 11, 0.15)", // Amber
-    image:
-      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "SaaS Marketing Page",
-    desc: "Landing page chuyển đổi cao với hiệu ứng 3D Interactive.",
-    tag: "UI/UX",
-    tech: "React • Framer Motion • Spline",
-    color: "rgba(6, 182, 212, 0.15)", // Cyan
-    image:
-      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "Cyber Security Monitor",
-    desc: "Dashboard giám sát an ninh mạng và phát hiện tấn công DDoS.",
-    tag: "Security",
-    tech: "Elasticsearch • Kibana",
-    color: "rgba(239, 68, 68, 0.15)", // Red
-    image:
-      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "Social Connect App",
-    desc: "Mạng xã hội nội bộ cho doanh nghiệp tích hợp Video Call.",
-    tag: "Fullstack",
-    tech: "WebRTC • Socket.io • Node.js",
-    color: "rgba(99, 102, 241, 0.15)", // Indigo
-    image:
-      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?q=80&w=800&auto=format&fit=crop",
+    icon: <Citrus className="w-16 h-16 text-orange-400" />,
+    url: "https://mandarine-hub.vercel.app/",
   },
 ];
 
@@ -217,13 +158,16 @@ export default function PortfolioFixed() {
           `}</style>
 
           {/* BACKGROUND */}
-          <div className="fixed inset-0 z-0 h-screen w-screen pointer-events-none">
-            <Squares
-              direction="diagonal"
-              speed={0.5}
-              borderColor="#222"
-              squareSize={40}
-              hoverFillColor="#222"
+          <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+            <Particles
+              particleColors={["#ffffff", "#ffaa40"]}
+              particleCount={200}
+              particleSpread={10}
+              speed={0.2}
+              particleBaseSize={100}
+              moveParticlesOnHover={true}
+              alphaParticles={false}
+              disableRotation={true}
             />
           </div>
           <div className="fixed inset-0 z-0 bg-linear-to-b from-[#09090b] via-transparent to-[#09090b] pointer-events-none" />
@@ -501,21 +445,27 @@ export default function PortfolioFixed() {
                         spotlightColor={project.color as any}
                       >
                         <div className="w-full h-40 rounded-2xl mb-5 relative overflow-hidden border border-white/5">
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                          />
+                          <div className="w-full h-40 rounded-2xl mb-5 relative overflow-hidden border border-white/5 bg-linear-to-br from-orange-400/10 to-orange-500/5 flex items-center justify-center transition-all duration-500 group-hover:from-orange-500/20 group-hover:to-orange-600/10">
+                            <div className="transition-transform duration-500 group-hover:scale-110">
+                              {project.icon}
+                            </div>
+                          </div>
                           <div className="absolute top-3 left-3">
                             <Badge className="bg-black/60 backdrop-blur border-white/10 text-xs">
                               {project.tag}
                             </Badge>
                           </div>
-                          <div className="absolute bottom-3 right-3 p-2 bg-white text-black rounded-full opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all">
-                            <ArrowUpRight className="w-4 h-4" />
-                          </div>
+                          <Link
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <div className="absolute bottom-3 right-3 p-2 bg-white text-black rounded-full opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all cursor-pointer">
+                              <ArrowUpRight className="w-4 h-4" />
+                            </div>
+                          </Link>
                         </div>
-                        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-zinc-400 transition-all">
+                        <h3 className="text-lg font-bold mb-2 transition-all">
                           {project.title}
                         </h3>
                         <p className="text-zinc-500 text-xs mb-4 line-clamp-2">
